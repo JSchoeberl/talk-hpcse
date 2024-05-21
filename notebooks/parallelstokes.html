@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Solving Stokes, in parallel &#8212; NGSolve@HPCSE</title>
+    <title>12. Solving Stokes, in parallel &#8212; NGSolve@HPCSE</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -62,6 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/parallelstokes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="13. Discontinuous Galerkin for the Wave Equation" href="wave_cuda.html" />
+    <link rel="prev" title="7. Navier-Stokes on moving domains" href="morphing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,8 +125,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -180,19 +180,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../wta/shell.html">4. Naghdi shell</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Model templates</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../modeltemplates/NavierStokesMT.html">5. NGSolve Model Templates:</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modeltemplates/natconv.html">6. Natural Convection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="morphing.html">7. Navier-Stokes on moving domains</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Solving Stokes, in parallel</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Recent development</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="wave_cuda.html">7. Discontinuous Galerkin for the Wave Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Curvature.html">8. Computation of Curvature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wave_cuda.html">13. Discontinuous Galerkin for the Wave Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Curvature.html">14. Computation of Curvature</a></li>
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../mycpp/highorder.html">13. 9.3 High Order Finite Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mycpp/myhighorder.html">19. Implementation of High Order Finite Elements</a></li>
 </ul>
 
     </div>
@@ -359,7 +365,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solving-stokes-in-parallel">
-<h1>Solving Stokes, in parallel<a class="headerlink" href="#solving-stokes-in-parallel" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>Solving Stokes, in parallel<a class="headerlink" href="#solving-stokes-in-parallel" title="Link to this heading">#</a></h1>
 <p>Starting an MPI-cluster on the local machine:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -372,7 +378,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting 4 engines with &lt;class &#39;ipyparallel.cluster.launcher.MPIEngineSetLauncher&#39;&gt;
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "2f0a5423425348aeb4e207c8f3be4a40"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "22328813cfae450aa66ea0193756eae9"}</script></div>
 </div>
 <p>Generate and distribute mesh, refine in parallel:</p>
 <div class="cell docutils container">
@@ -556,6 +562,24 @@ gfp.vec.data += sol[1]
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="morphing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Navier-Stokes on moving domains</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="wave_cuda.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Discontinuous Galerkin for the Wave Equation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
