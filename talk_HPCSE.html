@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -361,7 +361,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recent-developemnt">Recent developemnt:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-packages-on-top-of-ngsolve">External packages on top of NGSolve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-on-top-of-ngsolve">Packages on top of NGSolve</a></li>
 </ul>
             </nav>
         </div>
@@ -381,9 +381,10 @@ TU Wien</p>
 <p>with contributions by</p>
 <p><strong>Jay Gopalakrishnan</strong>, Portland State University<br>
 <strong>Christoph Lehrenfeld</strong>, Georg-August-Universität Göttingen <br>
-<strong>Philip Lederer</strong>, Twente University (formerly TU Wien)<br>
+<strong>Philip Lederer</strong>, Twente University<br>
 <strong>Michael Neunteufel</strong>, TU Wien<br>
 <strong>Sabine Zaglmayr</strong>, Dassault Systems <br>
+<strong>Astrid Pechstein</strong>, Johannes Kepler University Linz<br>
 <strong>Lukas Kogler</strong>, Siemens Industry Software GmbH <br>
 <strong>Matthias Hochsteger</strong>, <strong>Christopher Lackner</strong>, CERBSim GmbH</p>
 <section id="hpcse-2024-beskydy-montains-may-2024">
@@ -403,8 +404,12 @@ TU Wien</p>
 <li><p><a class="reference internal" href="wta/shell.html"><span class="std std-doc">Shell model</span></a></p></li>
 </ul>
 <p>If you like to try out this talk on your computer:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 -m pip install jupyter numpy scipy matplotlib ipywidgets
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python3 -m pip install numpy scipy matplotlib ipywidgets jupyter notebook 
 python3 -m pip install --pre --upgrade ngsolve webgui_jupyter_widgets
+</pre></div>
+</div>
+<p>Download notebooks from the jupyter-book, and run them like</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter-notebook elasticity3D.ipynb
 </pre></div>
 </div>
 <p>If local installation fails, you may use our jupyterhub:</p>
@@ -468,8 +473,8 @@ In particular high order methods for Maxwell equations (S. Zaglmayr) and Elastic
 <li><p><a class="reference internal" href="mycpp/myhighorder.html"><span class="std std-doc">Programming my own FiniteElement</span></a></p></li>
 </ul>
 </section>
-<section id="external-packages-on-top-of-ngsolve">
-<h2>External packages on top of NGSolve<a class="headerlink" href="#external-packages-on-top-of-ngsolve" title="Link to this heading">#</a></h2>
+<section id="packages-on-top-of-ngsolve">
+<h2>Packages on top of NGSolve<a class="headerlink" href="#packages-on-top-of-ngsolve" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ngsxfem">ngs-xfem</a> Cut-FEM package by C. Lehrenfeld</p></li>
 <li><p><a class="reference external" href="https://github.com/jayggg/ngstents">tent-pitching</a> space-time solvers for hyperbolic equations with C. Wintersteiger, J. Gopalakrishnan</p></li>
@@ -477,6 +482,7 @@ In particular high order methods for Maxwell equations (S. Zaglmayr) and Elastic
 <li><p>model order reduction <a class="reference external" href="https://pymor.org">pyMOR</a> by R. Milk, S. Rave, F. Schindler</p></li>
 <li><p>boundary elements with NGSolve <a class="reference external" href="https://github.com/Weggler/ngbem">ngbem</a> with L. Weggler and D. Seibold</p></li>
 <li><p>dual-cell time-stepping for Maxwell with M. Wabro, B. Kapidani and L. Codecasa</p></li>
+<li><p><a class="reference external" href="https://ngspetsc.readthedocs.io/en/latest">ngsPETSc</a> PETSc interface, U. Zerbinati et al</p></li>
 </ul>
 <p>If you like to hear more of NGSolve:</p>
 <ul class="simple">
@@ -552,7 +558,7 @@ In particular high order methods for Maxwell equations (S. Zaglmayr) and Elastic
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-spaces">Function spaces:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recent-developemnt">Recent developemnt:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-packages-on-top-of-ngsolve">External packages on top of NGSolve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-on-top-of-ngsolve">Packages on top of NGSolve</a></li>
 </ul>
   </nav></div>
 
