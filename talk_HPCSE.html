@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Advanced Finite Elements and High Performance Computing &#8212; NGSolve@HPCSE</title>
+    <title>NGSolve: Advanced Finite Elements and High Performance Computing &#8212; NGSolve@HPCSE</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -169,7 +169,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Advanced Finite Elements and High Performance Computing
+                    NGSolve: Advanced Finite Elements and High Performance Computing
                 </a>
             </li>
         </ul>
@@ -191,11 +191,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="notebooks/wave_cuda.html">9. Discontinuous Galerkin for the Wave Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Curvature.html">10. Computation of Curvature</a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="mycpp/myhighorder.html">15. Implementation of High Order Finite Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mycpp/myhighorder.html">11. Implementation of High Order Finite Elements</a></li>
 </ul>
 
     </div>
@@ -349,7 +345,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Advanced Finite Elements and High Performance Computing</h1>
+    <h1>NGSolve: Advanced Finite Elements and High Performance Computing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,8 +373,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="advanced-finite-elements-and-high-performance-computing">
-<h1>Advanced Finite Elements and High Performance Computing<a class="headerlink" href="#advanced-finite-elements-and-high-performance-computing" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ngsolve-advanced-finite-elements-and-high-performance-computing">
+<h1>NGSolve: Advanced Finite Elements and High Performance Computing<a class="headerlink" href="#ngsolve-advanced-finite-elements-and-high-performance-computing" title="Link to this heading">#</a></h1>
 <p><strong>Joachim Schöberl</strong> <br>
 TU Wien</p>
 <a class="reference internal image-reference" href="_images/TU_Wien.png"><img alt="_images/TU_Wien.png" src="_images/TU_Wien.png" style="width: 100px;" /></a>
@@ -393,7 +389,9 @@ TU Wien</p>
 <section id="hpcse-2024-beskydy-montains-may-2024">
 <h2>HPCSE 2024, Beskydy Montains, May 2024<a class="headerlink" href="#hpcse-2024-beskydy-montains-may-2024" title="Link to this heading">#</a></h2>
 <p>This presentation uses the open-source finite element library NGSolve (<a class="reference external" href="http://www.ngsolve.org">www.ngsolve.org</a>) within Jupyter Notebooks.</p>
-<a class="reference internal image-reference" href="_images/NGSlogo.png"><img alt="_images/NGSlogo.png" src="_images/NGSlogo.png" style="width: 200px;" /></a>
+<a class="reference internal image-reference" href="_images/NGSlogo.png"><img alt="_images/NGSlogo.png" class="align-center" src="_images/NGSlogo.png" style="width: 200px;" /></a>
+<p>The talk is available online from
+<a class="reference external" href="https://jschoeberl.github.io/talk-hpcse">https://jschoeberl.github.io/talk-hpcse</a></p>
 <a class="reference internal image-reference" href="_images/adobe-express-qr-code.png"><img alt="_images/adobe-express-qr-code.png" src="_images/adobe-express-qr-code.png" style="width: 200px;" /></a>
 </section>
 <section id="some-first-examples">
@@ -474,10 +472,11 @@ In particular high order methods for Maxwell equations (S. Zaglmayr) and Elastic
 <h2>External packages on top of NGSolve<a class="headerlink" href="#external-packages-on-top-of-ngsolve" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ngsxfem">ngs-xfem</a> Cut-FEM package by C. Lehrenfeld</p></li>
-<li><p><a class="reference external" href="https://github.com/jayggg/ngstents">tent-pitching</a> space-time solvers for hyperbolic equations by C. Wintersteiger, J. Gopalakrishnan</p></li>
+<li><p><a class="reference external" href="https://github.com/jayggg/ngstents">tent-pitching</a> space-time solvers for hyperbolic equations with C. Wintersteiger, J. Gopalakrishnan</p></li>
 <li><p><a class="reference external" href="https://docu.ngsolve.org/latest/i-tutorials/index.html#shape-and-topology-optimization">shape optimization</a> by P. Gangl, K. Sturm</p></li>
 <li><p>model order reduction <a class="reference external" href="https://pymor.org">pyMOR</a> by R. Milk, S. Rave, F. Schindler</p></li>
-<li><p>dual-cell time-stepping for Maxwell with B. Kapidani and L. Codecasa</p></li>
+<li><p>boundary elements with NGSolve <a class="reference external" href="https://github.com/Weggler/ngbem">ngbem</a> with L. Weggler and D. Seibold</p></li>
+<li><p>dual-cell time-stepping for Maxwell with M. Wabro, B. Kapidani and L. Codecasa</p></li>
 </ul>
 <p>If you like to hear more of NGSolve:</p>
 <ul class="simple">
